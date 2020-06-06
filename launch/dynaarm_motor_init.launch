@@ -1,0 +1,12 @@
+<launch>
+    <!-- Start tilt joint controller -->
+    <rosparam file="$(find dynaarm)/config/motorconfig.yaml" command="load"/>
+    <node name="arm_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port pan_hand_port
+                j1_controller
+                j2_1_controller
+                j2_2_controller
+                "
+          output="screen"/>
+</launch>
